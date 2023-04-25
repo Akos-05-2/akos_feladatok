@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
+    <script src = "./registration.js"></script>
+    <title>Amőba</title>
+</head>
+<body>
+    <main class="background">
+        <section class = "title">
+            <h1>Regisztráció/Bejelentkezés</h1>
+        </section>
+        <section class = "sign_up">
+            <div class = "first">
+                <form name = "bejelentkezes">
+                    Vezetéknév: <input type = "text" id = "veznev" pattern="[A-Za-z]"  placeholder = "Nagy" required> <br /> <br />
+                    Keresztnév: <input type = "text" id = "kernev" placeholder = "Pista" required> <br /> <br />
+                    Email: <input type = "email" id = "email" placeholder = "veznev.kernev123@gmail.com" required> <br /> <br />
+                    Felhasználónév: <input type = "text" id = "fnev" placeholder = "Valaki123" required> <br /> <br />
+                    Jelszó: <input type = "password" id = "passw" placeholder = "Valaki123" required> <br /> <br />
+                    Jelszó validálása: <input type = "password" id = "passw_valid" placeholder = "Valaki123" required> <br /> <br />
+                </form>
+                <button type = "button" onclick = "Uj_felhasznalo()">Regisztráció</button> 
+            </div>
+        </section>
+    </main>
+</body>
+</html>

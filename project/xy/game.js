@@ -30,6 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function eldontes() { 
         let megnyerve = false;
+        let lehetoseg = 4;
         for (let i = 0; i <= 9; i++) { 
             const gyoz_lehetoseg = gyozelem[i]; 
             const a = tabla[gyoz_lehetoseg[0]];
@@ -42,6 +43,15 @@ window.addEventListener('DOMContentLoaded', () => {
             if (a === b && b === c && c === d) { 
                 megnyerve = true;
                 break;
+            }
+            if (tabla.includes(a) || tabla.includes(b) || tabla.includes(c) || tabla.includes(d)){
+                lehetoseg--;
+                if (lehetoseg == 0){
+                    jelents(dontetlen);
+                    aktiv = false;
+                    return;
+                }
+                
             }
         }
 
@@ -56,15 +66,16 @@ window.addEventListener('DOMContentLoaded', () => {
         aktiv = false;
         return;
     }
+    
     }
 
     const jelents = (type) => { 
         switch(type){
             case jatekosO_gyoz:
-                jelento.innerHTML = 'Játékos <span class="playerO">O</span> nyert';
+                jelento.innerHTML = ' <span class="playerO">O</span> játékos  nyert';
                 break;
             case jatekosX_gyoz:
-                jelento.innerHTML = 'Játékos <span class="playerX">X</span> nyert';
+                jelento.innerHTML = '<span class="playerX">X</span> játékos  nyert';
                 break;
             case dontetlen:
                 jelento.innerText = 'Döntetlen';

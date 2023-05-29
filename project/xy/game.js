@@ -2,11 +2,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const mezok = Array.from(document.querySelectorAll('.tile')); 
     const jatekosHely = document.querySelector('.display-player'); 
     const torlesGomb = document.querySelector('#reset'); 
-    const jelento = document.querySelector('.announcer'); 
-
+    const jelento = document.querySelector('.announcer');
+    
     let tabla = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']; 
     let jatekos = 'X'; 
     let aktiv = true; 
+    let dbx = 0;
+    let dbo = 0;
+    let dbdontetlen = 0;
 
     const jatekosX_gyoz = 'jatekosX_gyoz'; 
     const jatekosO_gyoz = 'jatekosO_gyoz'; 
@@ -30,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function eldontes() { 
         let megnyerve = false;
-        let lehetoseg = 4;
+        let lehetoseg1 = 4;
         for (let i = 0; i <= 9; i++) { 
             const gyoz_lehetoseg = gyozelem[i]; 
             const a = tabla[gyoz_lehetoseg[0]];
@@ -45,25 +48,32 @@ window.addEventListener('DOMContentLoaded', () => {
                 break;
             }
             if (tabla.includes(a) || tabla.includes(b) || tabla.includes(c) || tabla.includes(d)){
-                lehetoseg--;
-                if (lehetoseg == 0){
+                lehetoseg1--;
+                if (lehetoseg1 == 0){
                     jelents(dontetlen);
                     aktiv = false;
+                    window.alert(dbx + " - " + dbo + " a döntetlenek száma: " + dbdontetlen)
                     return;
                 }
-                
             }
         }
 
     if (megnyerve) { 
             jelents(jatekos === 'X' ? jatekosX_gyoz : jatekosO_gyoz);
             aktiv = false;
+            if (jatekos === 'X'){
+                window.alert(dbx + " - " + dbo + " a döntetlenek száma: " + dbdontetlen);
+            }
+            else{
+                window.alert(dbx + " - " + dbo + " a döntetlenek száma: " + dbdontetlen);
+            }
             return;
         }
 
     if (!tabla.includes('')){ 
         jelents(dontetlen);
         aktiv = false;
+        window.alert(dbx + " - " + dbo + " a döntetlenek száma: " + dbdontetlen)
         return;
     }
     
@@ -73,12 +83,15 @@ window.addEventListener('DOMContentLoaded', () => {
         switch(type){
             case jatekosO_gyoz:
                 jelento.innerHTML = ' <span class="playerO">O</span> játékos  nyert';
+                dbo++;
                 break;
             case jatekosX_gyoz:
                 jelento.innerHTML = '<span class="playerX">X</span> játékos  nyert';
+                dbx++;
                 break;
             case dontetlen:
                 jelento.innerText = 'Döntetlen';
+                
                 break;
         }
         jelento.classList.remove('hide');

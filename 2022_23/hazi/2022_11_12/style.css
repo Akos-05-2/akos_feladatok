@@ -1,0 +1,9 @@
+table{
+    border: 5px blue solid; 
+}
+
+table:hover{
+    background-color: lightblue;
+    color: yellow;
+}
+

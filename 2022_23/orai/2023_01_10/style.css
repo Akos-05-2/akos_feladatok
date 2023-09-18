@@ -1,0 +1,85 @@
+body {
+    background-color: #edddd4;
+    color: #283b3d;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-bottom: 1rem;
+    display: flex;
+    height: 4.5rem;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 1.5rem 0 1.5rem;
+    line-height: 3rem;
+}
+
+li {
+    white-space: nowrap;
+}
+
+i {
+    margin-right: 1rem;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+#vegburger, #cart-icon {
+    margin: 1rem 0 0 2.5rem;
+    color: #edddd4;
+    background: #197278;
+    font-size: 1.5rem;
+    z-index: 2;
+    border-radius: 50%;
+    padding: 0.8rem 0.8rem 0.8rem 1rem;
+    width: 1.3rem;
+}
+
+#cart-icon {
+    margin: 1rem 2.5rem 0 0;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #197278;
+    color: #edddd4;
+    padding-top: 3.8rem;
+    transform: translateX(-10rem);
+    transition: transform 350ms ease-in-out;
+}
+nav a {
+    color: #edddd4;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+#cart-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: #7caa0a;
+    color: #fff;
+    padding-top: 3.8rem;
+    transform: translatey(-140vh);
+    transition: transform 350ms ease-in-out;
+
+}
+
+#cart-content.active {
+    transform: translateY(0);
+}
+.menu-active {
+    transform: translateX(0);
+}
+
+main h1 {
+    margin: 0 1rem;
+}
